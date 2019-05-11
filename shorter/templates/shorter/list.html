@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href=" {% static 'shorter/css/font.css' %}">
+{% endblock %}
+
+{% block content %}
+  <p id='sh_url'>Shortened URL</p>
+  <p id='url'><a href="{{ obj.get_short_url }}">{{ obj.get_short_url }}</a></p><br>
+  <a href="/"><input class='btn btn-primary' type="submit" name="" value="New Url"></a>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href=" {% static 'shorter/css/font.css' %}">
+{% endblock %}
+
+{% block content %}
+  <h1>URL Shortener Service</h1>
+
+
+<p class='lead'>
+  <div class="col-sm-offset-3">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input class='btn btn-primary' type="submit" name="" value="Shorten">
+    </form>
+  </div>
+</p>
+
+{% endblock %}

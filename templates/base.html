@@ -1,0 +1,48 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.3/examples/cover/cover.css">
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <title>{% block title %}ShURL{% endblock %}</title>
+    {% block stylesheet %}
+      <link rel="stylesheet" href=" {% static 'shorter/css/table.css' %}">
+    {% endblock %}
+  </head>
+
+  {% block body %}
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand"><a class='navbar-brand' href="/">HOME</a></h3>
+            <nav class="nav nav-masthead justify-content-center">
+              {% if not user.is_authenticated %}
+                <a class="nav-link active" href="{% url 'login' %}">Log in</a>
+                <a class="nav-link active" href="{% url 'signup' %}">Signup</a>
+              {% else %}
+                <a class="nav-link active" href="{% url 'logout' %}">Logout</a>
+                <a class="nav-link active" href="{% url 'created_urls' %}">Created URLs</a>
+              {% endif %}
+            </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        {% block content %}
+        {% endblock %}
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>URL Shortener for <a href="https://evo.company/ua/evo-summer-python-lab/">EVO Summer Python Lab’19</a>, by Dmytro Chartorynskyi</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+{% endblock %}
+</html>

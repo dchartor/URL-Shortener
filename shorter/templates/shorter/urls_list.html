@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}URLs{% endblock %}
+
+
+{% block content %}
+<div class="container">
+
+  <table class='table' style="color:#fff">
+  <thead>
+    <tr>
+      <th>Original URL</th>
+      <th>Shortened URL</th>
+      <th>Number of visiting</th>
+    </tr>
+  </thead>
+
+
+  {% for url in urls %}
+  <tr>
+    <td><i class="fas fa-globe"></i>
+      <p>{{ url }}</p>
+    </td>
+    <td>{{ url.get_short_url }}</td>
+    <td>{{ url.count }}</td>
+  </tr>
+  {% endfor %}
+  </table>
+</div>
+
+{% include 'includes/pagination.html' %}
+
+{% endblock %}

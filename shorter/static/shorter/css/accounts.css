@@ -1,0 +1,8 @@
+.logo a {
+  color: rgba(255,255,255);
+}
+
+.logo a:hover,
+.logo a:active {
+  text-decoration: none;
+}

@@ -1,0 +1,15 @@
+.body .h1, h1{
+    font-family: 'Gugi', cursive;
+}
+#sh_url {
+  font-family: 'Gugi', cursive;
+  font-size: 40px;
+}
+
+#url {
+  font-size: 20px;
+}
+
+.logo a {
+  font-family: 'Gugi', cursive;
+}

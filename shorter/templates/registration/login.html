@@ -1,0 +1,23 @@
+{% extends 'base_acc.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-3 col-sm-8">
+      <div class="card" style="color:#333">
+        <div class="card-body">
+          <h3 class="card-title">Log in</h3>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {% include 'includes/form.html' %}
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+          </form>
+        </div>
+        <div class="card-footer text-muted text-center">
+          New here? <a style="color:#333" href="{% url 'signup' %}">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
