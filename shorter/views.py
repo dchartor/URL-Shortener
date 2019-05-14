@@ -68,5 +68,5 @@ class UrlListView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        queryset = get_list_or_404(Url, user=current_user(self.request))
+        queryset = Url.objects.filter(user=current_user(self.request))
         return queryset
